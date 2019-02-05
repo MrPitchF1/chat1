@@ -3,14 +3,8 @@ let app = require('express')();
 let server = require('http').Server(app);
 let io = require('socket.io')(server);
 let port = 8080;
-
-
-//provide a sensible default for local development
-mongodb_connection_string = 'mongodb://127.0.0.1:27017/' + db_name;
-//take advantage of openshift env vars when available:
-if(process.env.http://chat1-chat.7e14.starter-us-west-2.openshiftapps.com ){
-  mongodb_connection_string = process.env.http://chat1-chat.7e14.starter-us-west-2.openshiftapps.com  + db_name;
-}
+var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080
+var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
 
 
 
